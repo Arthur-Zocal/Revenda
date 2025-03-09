@@ -18,7 +18,7 @@ public class CarroResource {
     @Autowired
     private CarroService carroService;
 
-    @GetMapping //localhost:8080/carro
+    @GetMapping
     public ResponseEntity<List<CarroDTO>> findAll(){
         return ResponseEntity.ok().body(carroService.findAll());
     }

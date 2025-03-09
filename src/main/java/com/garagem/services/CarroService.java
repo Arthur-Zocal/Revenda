@@ -29,12 +29,12 @@ private CarroRepositoy carroRepo;
 
     public Carro findById(Integer id){
         Optional<Carro> obj = carroRepo.findById(id);
-        return obj.orElseThrow(() -> new ObjectNotFoundException("Caminhão não encontrado! ID: "+ id));
+        return obj.orElseThrow(() -> new ObjectNotFoundException("Carro não foi encontrado! ID: "+ id));
     }
 
     public Carro findByPlaca(String placa){
         Optional<Carro> obj = carroRepo.findByPlaca(placa);
-        return obj.orElseThrow(() -> new ObjectNotFoundException("Caminha não encontrado! PLACA: "+ placa));
+        return obj.orElseThrow(() -> new ObjectNotFoundException("Carro não foi encontrado! PLACA: "+ placa));
     }
 
     public Carro create (CarroDTO dto){
@@ -47,10 +47,10 @@ private CarroRepositoy carroRepo;
     public void validaCarro(CarroDTO dto){
         Optional<Carro> objCnpj = carroRepo.findByPlaca(dto.getPlaca());
         if (objCnpj.isPresent() && objCnpj.get().getIdCarro() != dto.getIdCarro()){
-            throw new DataIntegrityViolationException("Placa ja cadastrada!");
+            throw new DataIntegrityViolationException("Placa ja esta cadastrada no sistema");
         }
         if (!garagemRepo.existsById(dto.getGaragem())){
-            throw new DataIntegrityViolationException("Garagem não encontrada! ID" +dto.getGaragem());
+            throw new DataIntegrityViolationException("Garagem não foi encontrada! ID" +dto.getGaragem());
         }
     }
 

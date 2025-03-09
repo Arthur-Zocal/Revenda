@@ -1,7 +1,7 @@
 package com.garagem.domains.enums;
 
 public enum Conservacao {
-    BOM(0,"BOM"), OTIMO(1,"OTIMO"), REFORMA(2,"REFORMA"), PARADO(3,"PARADO");
+    BOM(0,"BOM"), OTIMO(1,"OTIMO"), REFORMA(2,"REFORMA"), PESSIMO(3,"PESSIMO");
     private Integer id;
     private String estado;
 
@@ -37,6 +37,6 @@ public enum Conservacao {
                 return x;
             }
         }
-        throw new IllegalArgumentException("Estado de conservacao de veiculo inválido!");
+        throw new IllegalArgumentException("Conservacao de veiculo inválido!");
     }
 }

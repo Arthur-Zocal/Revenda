@@ -16,7 +16,7 @@ import java.util.Objects;
 public class Garagem {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_garagem")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_revenda")
     private Integer idGaragem;
 
     @NotNull
@@ -25,7 +25,7 @@ public class Garagem {
 
     @NotNull
     @NotBlank
-    private String razaoSocial;
+    private String nome;
 
     @NotNull
     @Digits(integer = 10, fraction = 0)
@@ -38,17 +38,17 @@ public class Garagem {
     public Garagem() {
     }
 
-    public Garagem(Integer idGaragem, String cnpj, String razaoSocial, int carrosLivres) {
+    public Garagem(Integer idGaragem, String nome, String cnpj, int carrosLivres) {
         this.idGaragem = idGaragem;
+        this.nome = nome;
         this.cnpj = cnpj;
-        this.razaoSocial = razaoSocial;
         this.carrosLivres = carrosLivres;
     }
 
     public Garagem(GaragemDTO dto) {
         this.idGaragem = dto.getIdGaragem();
         this.cnpj = dto.getCnpj();
-        this.razaoSocial = dto.getRazaoSocial();
+        this.nome = dto.getNome();
         this.carrosLivres = dto.getCarrosLivres();
     }
 
@@ -68,12 +68,12 @@ public class Garagem {
         this.cnpj = cnpj;
     }
 
-    public @NotNull @NotBlank String getRazaoSocial() {
-        return razaoSocial;
+    public @NotNull @NotBlank String getNome() {
+        return nome;
     }
 
     public void setRazaoSocial(@NotNull @NotBlank String razaoSocial) {
-        this.razaoSocial = razaoSocial;
+        this.nome = razaoSocial;
     }
 
     @NotNull
@@ -99,11 +99,11 @@ public class Garagem {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Garagem garagem = (Garagem) o;
-        return Objects.equals(idGaragem, garagem.idGaragem) && Objects.equals(cnpj, garagem.cnpj) && Objects.equals(razaoSocial, garagem.razaoSocial);
+        return Objects.equals(idGaragem, garagem.idGaragem) && Objects.equals(cnpj, garagem.cnpj) && Objects.equals(nome, garagem.nome);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idGaragem, cnpj, razaoSocial);
+        return Objects.hash(idGaragem, cnpj, nome);
     }
 }

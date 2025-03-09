@@ -16,7 +16,7 @@ import java.util.Objects;
 public class Carro {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_caminhao")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_carro")
     private Integer idCarro;
 
     @NotNull
@@ -49,7 +49,7 @@ public class Carro {
     private Garagem garagem;
 
     @Enumerated(EnumType.ORDINAL)
-    @JoinColumn(name = "estado")
+    @JoinColumn(name = "conservacao")
     private Conservacao conservacao;
 
     public Carro() {

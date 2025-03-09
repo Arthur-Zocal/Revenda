@@ -18,7 +18,7 @@ public class GaragemResource {
     @Autowired
     private GaragemService garagemService;
 
-    @GetMapping//http://localhost:8080/garagem
+    @GetMapping
     public ResponseEntity<List<GaragemDTO>> findAll(){
 
         return ResponseEntity.ok().body(garagemService.findAll());

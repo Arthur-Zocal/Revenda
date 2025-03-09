@@ -1,7 +1,7 @@
 package com.garagem.domains.enums;
 
 public enum Status {
-    APROVADO(0,"APROVADO"), EMANALISE(1,"EM ANALISE"),REPROVADO(2,"REPROVADO");
+    APROVADO(0,"APROVADO"), EMANALISE(1,"ANALIZANDO"),REPROVADO(2,"REPROVADO");
 
     private Integer id;
     private String status;

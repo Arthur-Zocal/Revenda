@@ -28,12 +28,12 @@ public class GaragemService {
 
     public Garagem findById(Integer id){
         Optional<Garagem> obj = garagemRepo.findById(id);
-        return obj.orElseThrow(() -> new ObjectNotFoundException("Garagem não encontrada! ID:" +id));
+        return obj.orElseThrow(() -> new ObjectNotFoundException("Garagem não foi encontrada! ID:" +id));
     }
 
     public Garagem findByCnpj(String cnpj){
         Optional<Garagem> obj = garagemRepo.findByCnpj(cnpj);
-        return obj.orElseThrow(() -> new ObjectNotFoundException("Garagem não encontrada! CNPJ: "+cnpj));
+        return obj.orElseThrow(() -> new ObjectNotFoundException("Garagem não foi encontrada! CNPJ: "+cnpj));
     }
 
     public Garagem create (GaragemDTO dto){
@@ -46,7 +46,7 @@ public class GaragemService {
     public void validaEstabelecimento(GaragemDTO dto){
         Optional<Garagem> obj = garagemRepo.findByCnpj(dto.getCnpj());
         if (obj.isPresent() && obj.get().getIdGaragem() != dto.getIdGaragem()){
-            throw new DataIntegrityViolationException("CNPJ já cadastrado!");
+            throw new DataIntegrityViolationException("CNPJ já esta  cadastrado no sistema");
         }
     }
 
@@ -62,7 +62,7 @@ public class GaragemService {
         Garagem obj = findById(id);
 
         if(obj.getCarros().size()>0){
-            throw new DataIntegrityViolationException("Garagem não pode ser deletada pois possui caminhões vinculados");
+            throw new DataIntegrityViolationException("Garagem não pode ser deletada, existem carros vinculados");
         }
 
         garagemRepo.deleteById(id);

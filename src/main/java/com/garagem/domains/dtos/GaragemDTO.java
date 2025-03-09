@@ -6,18 +6,18 @@ import jakarta.validation.constraints.NotNull;
 
 public class GaragemDTO {
 
-        private Integer idGaragem;
+    private Integer idGaragem;
 
-        @NotNull(message = "O campo cnpj não pode ser nulo!")
-        @NotBlank(message = "O campo cnpj não pode ser vazio!")
-        private String cnpj;
+    @NotNull(message = "O campo cnpj não pode ser nulo!")
+    @NotBlank(message = "O campo cnpj não pode ser vazio!")
+    private String cnpj;
 
-        @NotNull(message = "O campo razaoSocial não pode ser nulo!")
-        @NotBlank(message = "O campo razaoSocial não pode ser vazio!")
-        private String razaoSocial;
+    @NotNull(message = "O campo nome não pode ser nulo!")
+    @NotBlank(message = "O campo nome não pode ser vazio!")
+    private String nome;
 
-        @NotNull(message="O campo caminhaoDisponiveis não pode ser nulo!")
-        private int carrosLivres;
+    @NotNull(message="O campo carrosLivres não pode ser nulo!")
+    private int carrosLivres;
 
     public GaragemDTO() {
     }
@@ -25,7 +25,7 @@ public class GaragemDTO {
     public GaragemDTO(Garagem garagem) {
         this.idGaragem = garagem.getIdGaragem();
         this.cnpj = garagem.getCnpj();
-        this.razaoSocial = garagem.getRazaoSocial();
+        this.nome = garagem.getNome();
         this.carrosLivres = garagem.getCarros() != null ? garagem.getCarros().size() : 0;
     }
 
@@ -45,20 +45,20 @@ public class GaragemDTO {
         this.cnpj = cnpj;
     }
 
-    public @NotNull(message = "O campo razaoSocial não pode ser nulo!") @NotBlank(message = "O campo razaoSocial não pode ser vazio!") String getRazaoSocial() {
-        return razaoSocial;
+    public @NotNull(message = "O campo nome não pode ser nulo!") @NotBlank(message = "O campo nome não pode ser vazio!") String getNome() {
+        return nome;
     }
 
-    public void setRazaoSocial(@NotNull(message = "O campo razaoSocial não pode ser nulo!") @NotBlank(message = "O campo razaoSocial não pode ser vazio!") String razaoSocial) {
-        this.razaoSocial = razaoSocial;
+    public void setNome(@NotNull(message = "O campo nome não pode ser nulo!") @NotBlank(message = "O campo nome não pode ser vazio!") String nome) {
+        this.nome = nome;
     }
 
-    @NotNull(message = "O campo caminhaoDisponiveis não pode ser nulo!")
+    @NotNull(message = "O campo carrosLivres não pode ser nulo!")
     public int getCarrosLivres() {
         return carrosLivres;
     }
 
-    public void setCarrosLivres(@NotNull(message = "O campo caminhaoDisponiveis não pode ser nulo!") int carrosLivres) {
+    public void setCarrosLivres(@NotNull(message = "O campo carrosLivres não pode ser nulo!") int carrosLivres) {
         this.carrosLivres = carrosLivres;
     }
 }

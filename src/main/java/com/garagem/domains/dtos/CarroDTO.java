@@ -39,7 +39,7 @@ public class CarroDTO {
 
     private int garagem;
 
-    private String razaoSocialGaragem;
+    private String nomeGaragem;
 
     private int conservacao;
 
@@ -55,7 +55,7 @@ public class CarroDTO {
         this.anoFabricacao = carro.getAnoFabricacao();
         this.valorCarro = carro.getValorCarro();
         this.garagem = carro.getGaragem().getIdGaragem();
-        this.razaoSocialGaragem = carro.getGaragem().getRazaoSocial();
+        this.nomeGaragem = carro.getGaragem().getNome();
     }
 
     public Integer getIdCarro() {
@@ -124,12 +124,12 @@ public class CarroDTO {
         this.garagem = garagem;
     }
 
-    public String getRazaoSocialGaragem() {
-        return razaoSocialGaragem;
+    public String nomeGaragem() {
+        return nomeGaragem;
     }
 
-    public void setRazaoSocialGaragem(String razaoSocialGaragem) {
-        this.razaoSocialGaragem = razaoSocialGaragem;
+    public void nomeGaragem(String nomeGaragem) {
+        this.nomeGaragem = nomeGaragem;
     }
 
     public int getConservacao() {
